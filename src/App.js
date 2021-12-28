@@ -1,8 +1,19 @@
 //feature1
 import React, { Component } from 'react';
 import './App.css';
+import data from './data.json';
+import Products from './components/Products'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      products: data.products,
+      size: "",
+      sorts: ""
+
+    };
+  }
   render() {
     return (
       <div className="grid-container">
@@ -11,7 +22,12 @@ class App extends Component {
         </header>
 
         <main>
-          Product List
+          <div className="content">
+            <div className="main">
+              <Products products={this.state.products}/> 
+              </div>
+            <div className="sidebar">Cart items</div>
+          </div>
         </main>
 
         <footer>
